@@ -5,6 +5,8 @@ import { useStoreStateOpt } from "pullstate";
 import { PullstateCore } from "../stores/PullstateCore";
 import { PuzzleComponent } from "./PuzzlePage/PuzzleComponent";
 import { uc_generateNewSudoku } from "../stores/puzzle/PuzzleUpdaters";
+import { InputArea } from "./PuzzlePage/InputArea";
+import { Colors } from "../styles/Colors";
 
 export const MainAppPage = () => {
   const { PuzzleStore } = PullstateCore.useStores();
@@ -19,6 +21,7 @@ export const MainAppPage = () => {
       {started ? (
         <View style={styles.mainContentContainer}>
           <PuzzleComponent />
+          <InputArea/>
         </View>
       ) : (
         <Button
@@ -39,5 +42,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: Colors.blueAppBackground,
   },
 });

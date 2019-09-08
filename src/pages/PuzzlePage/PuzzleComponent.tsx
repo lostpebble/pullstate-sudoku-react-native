@@ -5,38 +5,9 @@ import { StyleSheet, View } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export const PuzzleComponent = () => {
-  /*const { PuzzleStore } = PullstateCore.useStores();
-  const [filledBlocks, originalFilledBlocks, selectedCell] = useStoreStateOpt(
-    PuzzleStore,
-    [["filledBlocks"], ["originalFilledBlocks"], ["selectedCell"]],
-  );*/
-
-  /*const selectedNumber =
-    selectedCell.x !== -1 && filledBlocks[selectedCell.y][selectedCell.x] !== "."
-      ? filledBlocks[selectedCell.y][selectedCell.x]
-      : "";*/
-
-  const rowsOfCells: ReactElement[][] = createFilled2DArray(9, 9, (x, y) => {
-    // const filledValue = filledBlocks[y][x] !== "." ? filledBlocks[y][x] : "";
-
-    return (
-      <Cell
-        // makeBold={selectedNumber === filledValue}
-        // state={
-        //   selectedCell.x === x && selectedCell.y === y
-        //     ? ECellSelectedState.SELECTED
-        //     : selectedCell.x === x || selectedCell.y === y
-        //     ? ECellSelectedState.SELECTED_IN_LINE
-        //     : ECellSelectedState.UNSELECTED
-        // }
-        key={`${x}${y}`}
-        x={x}
-        y={y}
-        // wasOriginal={originalFilledBlocks[y][x] !== "."}
-        // filledValue={filledValue}
-      />
-    );
-  });
+  const rowsOfCells: ReactElement[][] = createFilled2DArray(9, 9, (x, y) => (
+    <Cell key={`${x}${y}`} x={x} y={y} />
+  ));
 
   return (
     <View style={styles.puzzleContainer}>
@@ -56,7 +27,14 @@ const styles = StyleSheet.create({
   },
   puzzleContainer: {
     borderRadius: 10,
-    // overflow: "hidden",
     backgroundColor: Colors.lighter,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
+    elevation: 10,
   },
 });
