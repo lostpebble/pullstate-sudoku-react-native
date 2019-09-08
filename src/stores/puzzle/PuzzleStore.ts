@@ -1,11 +1,29 @@
 import { Store } from "pullstate";
-import { createListeners } from "./PuzzleListeners";
+import { createPuzzleListeners } from "./PuzzleListeners";
+
+export enum ECellSelectedState {
+  UNSELECTED,
+  SELECTED,
+  SELECTED_IN_LINE
+}
+
+interface ICellState {
+  selectedState: ECellSelectedState;
+  wasOriginal: boolean;
+  highlight: boolean;
+  value: string;
+  scribbled: string;
+}
 
 export interface IPuzzleStore {
   startedPuzzle: boolean;
   finishedPuzzle: boolean;
-  filledBlocks: string[][];
+  filledBlocks: ICellState[][];
   originalFilledBlocks: string[][];
+  selectedCell: {
+    x: number;
+    y: number;
+  },
 }
 
 export const PuzzleStore = new Store<IPuzzleStore>({
@@ -13,6 +31,7 @@ export const PuzzleStore = new Store<IPuzzleStore>({
   finishedPuzzle: false,
   filledBlocks: [],
   originalFilledBlocks: [],
+  selectedCell: { x: -1, y: -1 },
 });
 
-createListeners();
+createPuzzleListeners(PuzzleStore);

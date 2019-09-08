@@ -1,5 +1,5 @@
 {
-  "name": "PullstateSudokuReactNative",
+  "name": "pullstate-sudoku-react-native",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,8 +12,10 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.0-rc.2",
-    "pullstate": "^1.6.3",
-    "sudoku-umd": "^1.0.1"
+    "pullstate": "^1.6.4",
+    "sudoku-umd": "^1.0.1",
+    "react-native-vector-icons": "^6.6.0",
+    "react-native-elements": "^1.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
